@@ -30,6 +30,15 @@ const corsOptions = {
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+
+router.get('/', cors(corsOptions), (req, res) => {
+  res.json({
+      hello: "hi!"
+    });
+})
+
+
 // Route to get one post
 router.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
 
