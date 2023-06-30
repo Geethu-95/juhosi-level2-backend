@@ -26,7 +26,7 @@ app.use(cors());
 // app.use(express.json())
 const corsOptions = {
   // origin: "https://juhosi-level2-frontend.web.app"
-  origin: "https://master--deluxe-daffodil-504ed3.netlify.app/
+  origin: "https://master--deluxe-daffodil-504ed3.netlify.app"
 };
 app.use(bodyParser.urlencoded({
   extended: true
