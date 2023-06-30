@@ -41,10 +41,13 @@ router.get('/', cors(corsOptions), (req, res) => {
 
 
 // Route to get one post
-router.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
+router.get("/api/getFromId&Password/:id/:password", cors(corsOptions), (req, res) => {
 
-  const id = req.body.id;
-  const password = req.body.password
+  // const id = req.body.id;
+  // const password = req.body.password
+
+    const id = req.params.id;
+  const password = req.params.password
   con.query("SELECT * FROM User WHERE id = ? AND password = ?", [id, password], (err, result) => {
     if (err) {
       console.log(err)
