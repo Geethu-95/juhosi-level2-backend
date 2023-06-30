@@ -50,9 +50,10 @@ router.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
       console.log(err)
     }
     if(result)
-    // res.send(result)
+    
     // res.send("Success!")
-    res.json(result)
+    res.set('Access-Control-Allow-Origin', '*');
+    res.send(result)
   }
   );
 });
