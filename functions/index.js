@@ -8,7 +8,7 @@ const serverless = require('serverless-http')
 
 
 const app = express()
-app.use('/.netlify/functions/index',app)
+app.use('/.netlify/functions/index')
 
 var con = mysql.createConnection({
   host: "db4free.net",
