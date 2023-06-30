@@ -22,8 +22,11 @@ con.connect(function (err) {
   console.log("Connected!");
 });
 
-app.use(cors());
-app.options('*', cors())
+// app.use(cors());
+// app.options('*', cors())
+app.use(cors({
+  methods: ['POST']
+}));
 // app.use(express.json())
 const corsOptions = {
   // origin: "https://juhosi-level2-frontend.web.app"
@@ -53,7 +56,7 @@ router.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
     if(result)
     
     // res.send("Success!")
-    // res.set('Access-Control-Allow-Origin', 'https://master--deluxe-daffodil-504ed3.netlify.app');
+    // res.set('Access-Control-Allow-Origin', '*');
     res.send(result)
   }
   );
