@@ -5,10 +5,10 @@ const cors = require('cors')
 var Json2csvParser = require('json2csv').Parser;
 const fs = require('fs')
 const serverless = require('serverless-http')
-
+const router = express.Router()
 
 const app = express()
-app.use('/.netlify/functions/index')
+app.use('/.netlify/functions/index',router)
 
 var con = mysql.createConnection({
   host: "db4free.net",
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 // Route to get one post
-app.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
+router.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
 
   const id = req.body.id;
   const password = req.body.password
@@ -46,7 +46,7 @@ app.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
 });
 
 // Route for creating the post
-app.post('/api/create', cors(corsOptions), (req, res) => {
+router.post('/api/create', cors(corsOptions), (req, res) => {
   // const item = req.body;
 
   const orderDate = req.body.orderDate;
@@ -70,7 +70,7 @@ app.post('/api/create', cors(corsOptions), (req, res) => {
   );
 })
 
-app.post('/api/getPhone', cors(corsOptions), (req, res) => {
+router.post('/api/getPhone', cors(corsOptions), (req, res) => {
   const { phone, npassword, cnpassword } = req.body;
   console.log(phone)
   con.query("SELECT * FROM User WHERE phone_number = ?", phone, (err, result) => {
@@ -84,7 +84,7 @@ app.post('/api/getPhone', cors(corsOptions), (req, res) => {
 }
 )
 
-app.post('/api/update', cors(corsOptions), (req, res) => {
+router.post('/api/update', cors(corsOptions), (req, res) => {
   // const item = req.body;
 
   const { phone, npassword, cnpassword } = req.body;
@@ -103,7 +103,7 @@ app.post('/api/update', cors(corsOptions), (req, res) => {
   );
 })
 
-app.post('/export-csv',cors(corsOptions),function(req,res){
+router.post('/export-csv',cors(corsOptions),function(req,res){
 
 const {id} = req.body;
 
@@ -136,4 +136,5 @@ app.listen(4000, () => {
 })
 
 module.exports = app;
+exports.module = router;
 module.exports.handler = serverless(app)
