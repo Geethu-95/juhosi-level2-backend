@@ -45,7 +45,7 @@ router.get('/', cors(corsOptions), (req, res) => {
 
 
 // Route to get one post
-router.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
+router.post("/api/getFromId&Password",  (req, res) => {
 
   const id = req.body.id;
   const password = req.body.password
@@ -63,7 +63,7 @@ router.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
 });
 
 // Route for creating the post
-router.post('/api/create', cors(corsOptions), (req, res) => {
+router.post('/api/create',  (req, res) => {
   // const item = req.body;
 
   const orderDate = req.body.orderDate;
@@ -101,7 +101,7 @@ router.post('/api/getPhone', cors(corsOptions), (req, res) => {
 }
 )
 
-router.post('/api/update', cors(corsOptions), (req, res) => {
+router.post('/api/update', (req, res) => {
   // const item = req.body;
 
   const { phone, npassword, cnpassword } = req.body;
@@ -120,7 +120,7 @@ router.post('/api/update', cors(corsOptions), (req, res) => {
   );
 })
 
-router.post('/export-csv',cors(corsOptions),function(req,res){
+router.post('/export-csv',function(req,res){
 
 const {id} = req.body;
 
