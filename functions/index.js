@@ -51,7 +51,8 @@ router.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
     }
     if(result)
     // res.send(result)
-    res.send("Success!")
+    // res.send("Success!")
+    res.json(result)
   }
   );
 });
