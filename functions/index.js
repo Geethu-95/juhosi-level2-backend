@@ -24,14 +24,14 @@ con.connect(function (err) {
 
 // app.use(cors());
 // app.options('*', cors())
-app.use(cors({
+app.use(cors({origin: '*',
   methods: ['POST']
 }));
 // app.use(express.json())
-const corsOptions = {
-  // origin: "https://juhosi-level2-frontend.web.app"
-  origin: "https://master--deluxe-daffodil-504ed3.netlify.app"
-};
+// const corsOptions = {
+//   // origin: "https://juhosi-level2-frontend.web.app"
+//   origin: "https://master--deluxe-daffodil-504ed3.netlify.app"
+// };
 app.use(bodyParser.urlencoded({
   extended: true
 }));
