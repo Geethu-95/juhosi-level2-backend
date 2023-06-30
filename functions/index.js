@@ -23,7 +23,7 @@ con.connect(function (err) {
 });
 
 app.use(cors());
-// app.options('*', cors())
+
 // app.use(cors({origin: '*',
 //   methods: ['POST']
 // }));
