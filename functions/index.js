@@ -25,7 +25,7 @@ con.connect(function (err) {
 app.use(cors());
 // app.use(express.json())
 const corsOptions = {
-  origin: "http://localhost:3000"
+  origin: "https://juhosi-level2-frontend.web.app"
 };
 app.use(bodyParser.urlencoded({
   extended: true
