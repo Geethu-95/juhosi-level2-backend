@@ -49,8 +49,9 @@ router.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
     if (err) {
       console.log(err)
     }
-    // console.log(result)
-    res.send(result)
+    if(result)
+    // res.send(result)
+    res.send("Success!")
   }
   );
 });
