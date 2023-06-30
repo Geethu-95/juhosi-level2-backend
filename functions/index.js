@@ -52,7 +52,7 @@ router.post("/api/getFromId&Password", cors(corsOptions), (req, res) => {
     if(result)
     
     // res.send("Success!")
-    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Origin', 'https://master--deluxe-daffodil-504ed3.netlify.app');
     res.send(result)
   }
   );
